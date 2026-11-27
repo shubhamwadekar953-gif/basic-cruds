@@ -1,0 +1,60 @@
+<div class = "container">
+    <h1 class = "bg-primary text-white text-center mb-5">STUDENT CRUD IN ANGULAR</h1>
+    <div class = "row">
+        <div class = "col-md-4">
+            <div class = "form">
+                <div class = "form-group">
+                    <div class = "card">
+                        <div class = "card-body">
+                            <label for = "studentName">Student Name</label>
+                            <input type = "text" class = "form-control mb-4" #StudentName>
+
+                            <label for = "email">E-mail</label>
+                            <input type = "text" class = "form-control mb-3" #email>
+
+                            <label for = "contact">Contact</label>
+                            <input type = "number" class = "form-control mb-5" #contact> 
+
+                            <button
+                             (click)="onAddStudent()"
+                             *ngIf="!isUpdating"
+                             class = "btn btn-primary">Add Student</button>
+                            <button 
+                            (click)="onUpdate()"
+                            *ngIf = "isUpdating"
+                            class = "btn btn-success">Update Student</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class = "col-md-8">
+            <div class = "card">
+                <table class = "table table-bordered">
+                    <thead >
+                        <th>STUDENT NAME</th>
+                        <th>EMAIL</th>
+                        <th>CONTACT</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+                    </thead>
+                    <tbody *ngFor = "let student of studentArr ; let i = index">
+                        <td>{{student.studentName}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.contact}}</td>
+                        <td><button 
+                            (click)="onEdit(student)"
+                            class = "btn btn-success">Edit</button></td>
+
+
+                        <td><button
+                             (click)="onDelete( i)"
+                             class = "btn btn-danger">Delete</button></td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <h1 class="bg-danger m-5 text-white text-center p-2">STUDENT CRUD</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form">
+                <div class="form-group">
+                    <div class="card">
+                        <h2 class="bg-danger text-center text-white p-1">STUDENT CARD</h2>
+                        <div class="card-body">
+
+                            <label for="fName">first Name</label>
+                            <input type="text" class="form-control mb-3" #fName>
+
+                            <label for="lName">Last Name</label>
+                            <input type="text" class="form-control mb-3" #lName>
+
+                            <label for="age">Age</label>
+                            <input type=number class="form-control mb-3" #age>
+
+                            <label for="rollNo">Roll No</label>
+                            <input type=number class="form-control mb-3" #rollNo>
+
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control mb-3" #email>
+
+                            <label for="contact">Contact No</label>
+                            <input type="text" class="form-control mb-5" #contact>
+
+
+                            <button (click) = "onAddStudent()" *ngIf="!isUpdating" class="btn btn-primary text-white">Add Student</button>
+                            <button (click) = "onUpdate()"  *ngIf="isUpdating" class="btn btn-success text-white">Update Student</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h2 class="bg-danger text-white text-center p-1">STUDENT LIST</h2>
+            <div class="card">
+                <table class="table table-bordered">
+
+
+                    <thead>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        <th>Roll No</th>
+                        <th>Email</th>
+                        <th>contact</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody *ngFor="let student of studentArr; let i = index">
+                        <td>{{student.fName}}</td>
+                        <td>{{student.lName}}</td>
+                        <td>{{student.age}}</td>
+                        <td>{{student.rollNo}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.contact}}</td>
+                        <td><button (click)="onEdit(student)" class = "btn btn-success">Edit</button></td>
+                        <td><button (click)="onDelete(i)"  class="btn btn-danger">Remove</button></td>
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
